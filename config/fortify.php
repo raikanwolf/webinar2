@@ -142,18 +142,18 @@ return [
     | these features or you can even remove all of these if you need to.
     |
     */
-
+//de momento solo nos quedaremos con las 3 primeras  features
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        // Features::emailVerification(),
-        Features::updateProfileInformation(),
-        Features::updatePasswords(),
-        Features::twoFactorAuthentication([
+        Features::emailVerification(),
+        //Features::updateProfileInformation(),
+        //Features::updatePasswords(),
+        /*Features::twoFactorAuthentication([
             'confirm' => true,
             'confirmPassword' => true,
             // 'window' => 0,
-        ]),
+        ]),*/
     ],
 
 ];
