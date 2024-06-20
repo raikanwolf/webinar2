@@ -6,3 +6,5 @@ use App\Http\Controllers\WebinarController;
 
 Route::get('/register', [WebinarController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [WebinarController::class, 'register']);
+Route::get('/topics', [WebinarController::class, 'showTopics'])->name('topics');
+

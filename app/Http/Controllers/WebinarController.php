@@ -29,4 +29,10 @@ class WebinarController extends Controller
 
         return redirect()->route('register')->with('status', 'Registration successful!');
     }
+
+    public function showTopics() {
+        $participants = Participant::all();
+        return view('webinar.topics', compact('participants'));
+    }
+
 }
