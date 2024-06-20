@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\WebinarController;
+
+Route::get('/register', [WebinarController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [WebinarController::class, 'register']);
