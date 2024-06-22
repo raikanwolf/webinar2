@@ -8,31 +8,29 @@ use Illuminate\Support\Facades\Mail;
 
 class WebinarController extends Controller
 {
+    public function showTopics()
+    {
+        $participants = Participant::with('tasks')->get();
+        return view('webinar.topics', compact('participants'));
+    }
+
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        return view('webinar.register');
     }
 
     public function register(Request $request)
     {
-        $request->validate([
+        // Validar y registrar el participante
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:participants',
+            'email' => 'required|email|max:255|unique:participants',
             'company' => 'required|string|max:255',
             'position' => 'required|string|max:255',
         ]);
 
-        $participant = Participant::create($request->all());
+        Participant::create($validated);
 
-        // Enviar correo de confirmación
-        Mail::to($participant->email)->send(new \App\Mail\WebinarRegistration($participant));
-
-        return redirect()->route('register')->with('status', 'Registration successful!');
+        return redirect()->route('topics');
     }
-
-    public function showTopics() {
-        $participants = Participant::all();
-        return view('webinar.topics', compact('participants'));
-    }
-
 }
