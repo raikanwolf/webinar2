@@ -16,7 +16,7 @@ class WebinarController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('webinar.register');
+        return view('auth.register');
     }
 
     public function register(Request $request)

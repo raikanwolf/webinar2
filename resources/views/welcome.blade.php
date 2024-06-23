@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Bienvenida')
+@section('title', 'Welcome')
 
 @section('content')
-<div class="container text-center">
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 text-center">
             <h1>La reunión empezará en breve</h1>
         </div>
     </div>
